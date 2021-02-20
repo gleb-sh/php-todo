@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Controller
 {
-    /*
+
     public $answer = [
         'status' => 0,
         'mess' => null,
@@ -14,7 +14,7 @@ class Controller
 
     public function answerJson() {
 
-        if ($this->answer['status'] === 1) {
+        if ($this->answer['status'] == 1) {
             unset($this->answer['error']);
         } else {
             //unset($this->answer['data']);
@@ -23,9 +23,8 @@ class Controller
             }
         }
 
-        // return response()->json($this->answer);
+        echo json_encode($this->answer);
 
-        //
     }
-    */
+
 }

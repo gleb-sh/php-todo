@@ -46,4 +46,10 @@ class TodoController extends Controller
         }
 
     }
+
+    public function ready(string $param)
+    {
+        $this->answer['status'] = TodoService::ready($param);
+        $this->answerJson();
+    }
 }

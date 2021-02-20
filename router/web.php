@@ -13,3 +13,5 @@ $router->get('logout',[UserController::class,'logout']);
 
 $router->get('create',[TodoController::class,'new']);
 $router->post('create',[TodoController::class,'create']);
+
+$router->post('ready',[TodoController::class,'ready']);

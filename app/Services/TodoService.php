@@ -62,4 +62,18 @@ class TodoService
             //return false;
         }
     }
+
+    public static function ready(string $id)
+    {
+        try {
+
+            $todo = Todo::where('id',$id)->first();
+            $todo->status = 2;
+            $todo->save();
+            return true;
+    
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

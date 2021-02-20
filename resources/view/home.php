@@ -7,12 +7,24 @@ if (count($list) !== 0) {
     foreach ($list as $item) {
     ?>
     <div class="card" style="max-width: 700px;">
-        <div class="card-header bg-transparent "><?= htmlspecialchars($item['user_name']) ?></div>
+        <div class="card-header bg-transparent ">
+            <a href="mailto:<?= htmlspecialchars($item['email']) ?>"><?= htmlspecialchars($item['email']) ?></a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title"></h5>
+            <h5 class="card-title"><?= htmlspecialchars($item['user_name']) ?></h5>
             <p class="card-text"><?= htmlspecialchars($item['about'])  ?></p>
         </div>
-        <div class="card-footer bg-transparent"><a href="mailto:<?= htmlspecialchars($item['email']) ?>"><?= htmlspecialchars($item['email']) ?></a></div>
+        <?php if ($isUser) { ?>
+        <div class="card-footer bg-transparent">
+            <a href="update/<?= $item['id'] ?>" class="btn btn-dark">Редактировать</a>
+            <?php if ($item['status'] === 1) { ?>
+                <div class="btn btn-primary">Выполняется</div>
+                <div data-href="ready" data-id="<?= $item['id'] ?>" class="btn btn-success">✔</div>
+            <?php } else { ?>
+                <div class="btn btn-success">Выполнено ✔</div>
+            <?php } ?>
+        </div>
+        <?php } ?>
     </div>
     <?php
     }
