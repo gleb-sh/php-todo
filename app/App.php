@@ -2,12 +2,14 @@
 
 namespace App;
 
+use App\Router;
+
 class App
 {
     public $hello = 'Привет, Мир!';
 
-    public function hello()
+    public function route(string $URI, object $router)
     {
-        echo $this->hello;
+       return $router->getRoute($URI);
     }
 }

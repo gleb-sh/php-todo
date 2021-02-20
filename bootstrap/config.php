@@ -1,5 +1,18 @@
 <?php
 
+/* APP */
+
+$app = new App\App;
+
+/* functions  */
+
+require_once __DIR__.'/../app/functions.php';
+
+/* ROUTING */
+
+$router = new App\Router;
+
+require_once __DIR__.'/../router/web.php';
 
 /* ORM */ 
 
@@ -29,9 +42,3 @@ $capsule->setAsGlobal();
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
 
-
-/* APP */
-
-$app = new App\App;
-
-$app->hello();
