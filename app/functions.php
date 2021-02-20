@@ -17,7 +17,8 @@ function abort(int $code)
     echo($err);
 }
 
-function view(string $view)
+function view(string $view, array $vars = null)
 {
+    extract($vars);
     require_once __DIR__.'/../resources/view/layout.php';
 }

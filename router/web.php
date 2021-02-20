@@ -9,3 +9,5 @@ $router->get('',[SiteController::class,'index']);
 $router->get('login',[SiteController::class,'login']);
 
 $router->post('login',[UserController::class,'login']);
+
+$router->get('logout',[UserController::class,'logout']);

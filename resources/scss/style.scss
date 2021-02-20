@@ -1,5 +1,15 @@
 body {
     padding: 0px;
     margin: 0px;
-    background: rgb(236, 217, 255);
+    background: rgb(245, 236, 255);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.myheader {
+    margin-top: 10px;
+    .container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+    }
 }

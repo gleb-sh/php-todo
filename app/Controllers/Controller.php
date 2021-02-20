@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class Controller
 {
+    /*
     public $answer = [
         'status' => 0,
         'mess' => null,
@@ -26,4 +27,5 @@ class Controller
 
         //
     }
+    */
 }

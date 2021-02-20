@@ -4,6 +4,10 @@
 
 $app = new App\App;
 
+/* session */
+
+session_start();
+
 /* functions  */
 
 require_once __DIR__.'/../app/functions.php';
