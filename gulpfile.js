@@ -24,7 +24,7 @@ function scripts() {
         'resources/js/**.js'
     ])
     .pipe(concat('app.min.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(dest('public/js/'))
     .pipe(browserSync.stream())
 }

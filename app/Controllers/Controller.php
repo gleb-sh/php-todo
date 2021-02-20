@@ -17,7 +17,7 @@ class Controller
         if ($this->answer['status'] == 1) {
             unset($this->answer['error']);
         } else {
-            //unset($this->answer['data']);
+            unset($this->answer['data']);
             if ($this->answer['mess'] == null) {
                 $this->answer['mess'] = 'Неизвестная ошибка';
             }

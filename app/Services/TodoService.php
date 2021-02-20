@@ -111,7 +111,6 @@ class TodoService
             return $todo;
         } catch (\Throwable $th) {
             return $error = $th->getMessage();
-            //return false;
         }
     }
 

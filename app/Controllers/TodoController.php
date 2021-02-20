@@ -33,7 +33,6 @@ class TodoController extends Controller
                 if ( is_object($todo) ) {
                     return header('Location: /');
                 } else {
-                    // $error = 'Проверьте данные, есть ошибки';
                     $error = $todo;
                 }
 
