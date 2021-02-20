@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\Controller;
 use App\Services\UserService;
+use App\Services\TodoService;
 
 class SiteController extends Controller
 {
@@ -11,7 +12,11 @@ class SiteController extends Controller
     {
         $isUser = UserService::isUser();
 
-        return view('home', compact('isUser') );
+        $data = TodoService::params();
+
+        $list = TodoService::get($data);
+
+        return view('home', compact('isUser','list','data') );
     }
 
     public function login()

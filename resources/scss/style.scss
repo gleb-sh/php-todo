@@ -1,15 +1,19 @@
 body {
     padding: 0px;
     margin: 0px;
-    background: rgb(245, 236, 255);
+    background: rgba(245, 236, 255, 0.575);
     font-family: 'Montserrat', sans-serif;
 }
 
 .myheader {
-    margin-top: 10px;
+    margin: 20px 0;
     .container {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
+}
+
+.card {
+    margin: 10px auto;
 }
