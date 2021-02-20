@@ -18,7 +18,7 @@ document.querySelectorAll('div[data-href]').forEach(el=>{
         el.addEventListener('click',()=>{
             el.classList.add('hidden')
             el.parentElement.querySelector('.btn-dark').classList.add('hidden')
-            el.parentElement.querySelector('.btn-primary').classList.add('hidden')
+            el.parentElement.querySelector('.btn-warning').classList.add('hidden')
             getdata('ready/' + el.dataset.id,{},(ans)=>{
                 if (ans.status === true) {
                     el.innerHTML = 'Выполнено ' + el.innerHTML

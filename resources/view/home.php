@@ -25,7 +25,7 @@ if (count($list) !== 0) {
         </div>
         <div class="card-footer bg-transparent">
             <?php if ($item['status'] === 1) { ?>
-                <div class="btn btn-primary">Выполняется</div>
+                <div class="btn btn-warning">Выполняется</div>
             <?php } else { ?>
                 <div class="btn btn-success">Выполнено ✔</div>
             <?php } ?>
