@@ -15,7 +15,6 @@ function scripts() {
     .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(dest('public/js/'))
-    .pipe(browserSync.stream())
 }
 
 // scss
@@ -35,7 +34,6 @@ function styles() {
         //format: 'beautify'
     }) ))
     .pipe(dest('public/css/'))
-    .pipe(browserSync.stream())
 }
 
 // watching
@@ -49,7 +47,7 @@ function startwatch() {
     ],scripts)
     watch(
         'public/**/*.html'
-    ).on('change',browserSync.reload)
+    )
 }
 
 // tasks

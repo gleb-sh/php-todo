@@ -8,10 +8,12 @@ class SiteController extends Controller
 {
     public function index()
     {
-        echo 'Привет!';
+        return view('home');
     }
-    public function viewSome(string $param)
+
+    public function login()
     {
-        var_dump($param);
+        return view('login');
     }
+
 }

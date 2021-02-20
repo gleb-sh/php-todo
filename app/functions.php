@@ -15,5 +15,9 @@ function abort(int $code)
     header($err);
 
     echo($err);
+}
 
+function view(string $view)
+{
+    require_once __DIR__.'/../resources/view/layout.php';
 }
