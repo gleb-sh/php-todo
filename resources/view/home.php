@@ -16,8 +16,8 @@ if (count($list) !== 0) {
         </div>
         <?php if ($isUser) { ?>
         <div class="card-footer bg-transparent">
-            <a href="update/<?= $item['id'] ?>" class="btn btn-dark">Редактировать</a>
             <?php if ($item['status'] === 1) { ?>
+                <a href="update/<?= $item['id'] ?>" class="btn btn-dark">Редактировать</a>
                 <div class="btn btn-primary">Выполняется</div>
                 <div data-href="ready" data-id="<?= $item['id'] ?>" class="btn btn-success">✔</div>
             <?php } else { ?>

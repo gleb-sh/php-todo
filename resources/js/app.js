@@ -18,6 +18,7 @@ document.querySelectorAll('div[data-href]').forEach(el=>{
     if (el.dataset.href == 'ready') {
         el.addEventListener('click',()=>{
             el.classList.add('hidden')
+            el.parentElement.querySelector('.btn-dark').classList.add('hidden')
             el.parentElement.querySelector('.btn-primary').classList.add('hidden')
             getdata('ready/' + el.dataset.id,{},(ans)=>{
                 if (ans.status === true) {

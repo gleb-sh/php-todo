@@ -67,11 +67,31 @@ class TodoService
     {
         try {
 
-            $todo = Todo::where('id',$id)->first();
+            $todo = TodoService::getById($id);
             $todo->status = 2;
             $todo->save();
             return true;
     
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public static function getById(string $id) : object
+    {
+        return Todo::where('id',$id)->first();
+    }
+
+    public static function update(object $todo, array $data)
+    {
+        try {
+            if ( isset($data['about']) ) {
+                $todo->about = trim($data['about']);
+                $todo->save();
+                return $todo;
+            } else {
+                return false;
+            }
         } catch (\Throwable $th) {
             return false;
         }

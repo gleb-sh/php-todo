@@ -15,3 +15,6 @@ $router->get('create',[TodoController::class,'new']);
 $router->post('create',[TodoController::class,'create']);
 
 $router->post('ready',[TodoController::class,'ready']);
+
+$router->get('update',[TodoController::class,'rewrite']);
+$router->post('update',[TodoController::class,'update']);

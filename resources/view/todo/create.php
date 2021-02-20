@@ -1,9 +1,9 @@
 <div class="container">
     <h2>Новая задача</h2>
-    <form method="post" action="/create">
+    <form method="post" <?php if ($isRewrite) { ?> action="/update/<?= $data['id']?>" <?php } else { ?>  action="/create" <?php } ?>>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Имя пользователя</label>
-            <input value="<?= $data['user_name'] ?>" required type="text" name="user_name" class="form-control" id="exampleInputPassword1">
+            <input value="<?= $data['user_name'] ?>" <?php if ($isRewrite) { echo 'disabled'; } ?> required type="text" name="user_name" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="form-floating">
             <textarea name="about" class="form-control" id="floatingTextarea2" style="height: 100px"><?= $data['about'] ?></textarea>
@@ -11,7 +11,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input value="<?= $data['email'] ?>" required name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input value="<?= $data['email'] ?>" <?php if ($isRewrite) { echo 'disabled'; } ?> required name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <?php 
             if ($error) {
             ?>

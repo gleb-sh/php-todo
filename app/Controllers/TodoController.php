@@ -39,7 +39,7 @@ class TodoController extends Controller
 
             }
 
-            return view('todo/create',compact('data','error'));
+            return view('todo/create',compact('isUser','data','error'));
 
         } else {
             return header('Location: /');
@@ -51,5 +51,58 @@ class TodoController extends Controller
     {
         $this->answer['status'] = TodoService::ready($param);
         $this->answerJson();
+    }
+
+    public function rewrite(string $param)
+    {
+        if ( $isUser = UserService::isUser() && $param) {
+
+            $data = TodoService::getById($param);
+
+            if ( $data['status'] === 2 ) {
+                return header('Location: /');
+            }
+
+            $isRewrite = true;
+
+            return view('todo/create',compact('isUser','data','isRewrite') );
+
+        } else {
+            return header('Location: /');
+        }
+
+    }
+
+    public function update(string $param)
+    {
+        if ( $isUser = UserService::isUser() && $param) {
+            
+            if ($todo = TodoService::getById($param) ) {
+
+                if ($todo['status'] === 2) {
+                    return header('Location: /');
+                }
+
+                $error = null;
+
+                if ( $data = TodoService::update($todo, $_POST) ) {
+                    
+                } else {
+                    $data = $todo;
+                    $error = 'Ошибка. Попробуйте ещё раз';
+                }
+
+                $isRewrite = true;
+
+                return view('todo/create',compact('isUser','data','isRewrite','error') );
+    
+            } else {
+                return header('Location: /');
+            }
+
+
+        } else {
+            return header('Location: /');
+        }
     }
 }
