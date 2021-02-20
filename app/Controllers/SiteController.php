@@ -21,9 +21,13 @@ class SiteController extends Controller
 
     public function login()
     {
-        $isUser = UserService::isUser();
 
-        return view('login', compact('isUser'));
+        if ( $isUser = UserService::isUser() ) {
+            header('location: /');
+        } else {
+            return view('login', compact('isUser'));
+        }
+
     }
 
 }

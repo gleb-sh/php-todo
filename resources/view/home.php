@@ -1,18 +1,18 @@
 <div class="container">
-
+<h1>Cписок задач</h1>
 <?php
 
 if (count($list) !== 0) {
 
     foreach ($list as $item) {
     ?>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success"><?= htmlspecialchars($item['user_name']) ?></div>
+    <div class="card" style="max-width: 700px;">
+        <div class="card-header bg-transparent "><?= htmlspecialchars($item['user_name']) ?></div>
         <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text"><?php htmlspecialchars($item['about'])  ?></p>
+            <p class="card-text"><?= htmlspecialchars($item['about'])  ?></p>
         </div>
-        <div class="card-footer bg-transparent border-success"><a href="mailto:<?= htmlspecialchars($item['email']) ?>"><?= htmlspecialchars($item['email']) ?></a></div>
+        <div class="card-footer bg-transparent"><a href="mailto:<?= htmlspecialchars($item['email']) ?>"><?= htmlspecialchars($item['email']) ?></a></div>
     </div>
     <?php
     }

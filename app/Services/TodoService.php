@@ -29,4 +29,37 @@ class TodoService
         return $data;
 
     }
+
+    public static function validate(array $data)
+    {
+        $error = false;
+
+        if (
+            \mb_strlen( trim( $data['about'] ) ) < 4 &&
+            \mb_strlen( trim( $data['name'] ) ) < 1 
+        ) {
+            $error = 'Имя пользователя и текст задачи должны быть не менее 2-х и 5-ти символов соответственно';
+        }
+
+        if (filter_var( trim( $data['email'] ),FILTER_VALIDATE_EMAIL) === false ) {
+            $error = 'Некорректный email';
+        }
+
+        return $error;
+    }
+
+    public static function create(array $data)
+    {
+        try {
+            $todo = new Todo;
+            $todo->user_name = trim($data['user_name']);
+            $todo->about = trim($data['about']);
+            $todo->email = trim($data['email']);
+            $todo->save();
+            return $todo;
+        } catch (\Throwable $th) {
+            return $error = $th->getMessage();
+            //return false;
+        }
+    }
 }
