@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Новая задача</h2>
+    <h2><?php if ($isRewrite) { ?> Редактирование <?php } else { ?> Новая задача<?php } ?></h2>
     <form method="post" <?php if ($isRewrite) { ?> action="/update/<?= $data['id']?>" <?php } else { ?>  action="/create" <?php } ?>>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Имя пользователя</label>
@@ -19,5 +19,6 @@
             <?php } ?>
         </div>
         <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/" type="button" class="btn btn-warning">Вернуться на главную</a>
     </form>
 </div>

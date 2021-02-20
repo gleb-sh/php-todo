@@ -14,15 +14,15 @@
     
 <div class="myheader">
     <div class="container">
-        <a href="create" type="button" class="btn btn-success">Новая задача</a>
+        <a href="/create" type="button" class="btn btn-success">Новая задача</a>
         <?php
         if ($isUser) {
             ?>
-            <a href="logout" type="button" class="btn btn-danger">Выход</a>
+            <a href="/logout" type="button" class="btn btn-danger">Выход</a>
             <?php
         } else {
             ?>
-            <a href="login" type="button" class="btn btn-warning">Вход</a>
+            <a href="/login" type="button" class="btn btn-warning">Вход</a>
             <?php
         }
         ?>

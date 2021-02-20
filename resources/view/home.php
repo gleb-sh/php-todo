@@ -1,5 +1,12 @@
 <div class="container">
 <h1>Cписок задач</h1>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a href="" type="button" class="btn btn-primary">По статусу</a>
+    <a href="" type="button" class="btn btn-primary">По имени</a>
+    <a href="" type="button" class="btn btn-primary">По email</a>
+</div>
+
 <?php
 
 if (count($list) !== 0) {
@@ -14,17 +21,19 @@ if (count($list) !== 0) {
             <h5 class="card-title"><?= htmlspecialchars($item['user_name']) ?></h5>
             <p class="card-text"><?= htmlspecialchars($item['about'])  ?></p>
         </div>
-        <?php if ($isUser) { ?>
         <div class="card-footer bg-transparent">
             <?php if ($item['status'] === 1) { ?>
-                <a href="update/<?= $item['id'] ?>" class="btn btn-dark">Редактировать</a>
                 <div class="btn btn-primary">Выполняется</div>
-                <div data-href="ready" data-id="<?= $item['id'] ?>" class="btn btn-success">✔</div>
             <?php } else { ?>
                 <div class="btn btn-success">Выполнено ✔</div>
             <?php } ?>
-        </div>
+        <?php if ($isUser) { ?>
+            <?php if ($item['status'] === 1) { ?>
+                <a href="update/<?= $item['id'] ?>" class="btn btn-dark">Редактировать</a>
+                <div data-href="ready" data-id="<?= $item['id'] ?>" class="btn btn-success">✔</div>
+            <?php } ?>
         <?php } ?>
+        </div>
     </div>
     <?php
     }

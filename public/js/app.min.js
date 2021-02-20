@@ -4,7 +4,6 @@ function getdata(method,data,succses = function(ans) {}) {
 
     getdata.open('POST','/' + method,true)
     getdata.setRequestHeader('Content-Type','application/json; charset=utf-8')
-    //getdata.setRequestHeader('X-CSRF-TOKEN',document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
     getdata.send( JSON.stringify(data) )
     getdata.onreadystatechange = function() {
         if (getdata.readyState != 4) return;        
