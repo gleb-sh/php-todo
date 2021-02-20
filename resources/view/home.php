@@ -1,16 +1,18 @@
 <div class="container">
 <h1>Cписок задач</h1>
 
-<div class="btn-group" role="group" aria-label="Basic example">
-    <a href="" type="button" class="btn btn-primary">По статусу</a>
-    <a href="" type="button" class="btn btn-primary">По имени</a>
-    <a href="" type="button" class="btn btn-primary">По email</a>
-</div>
-
 <?php
 
 if (count($list) !== 0) {
 
+    ?>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="<?= $pag['status'] ?>" type="button" class="btn btn-primary">По статусу</a>
+        <a href="<?= $pag['name'] ?>" type="button" class="btn btn-primary">По имени</a>
+        <a href="<?= $pag['email'] ?>" type="button" class="btn btn-primary">По email</a>
+    </div>
+
+    <?php
     foreach ($list as $item) {
     ?>
     <div class="card" style="max-width: 700px;">
@@ -47,7 +49,7 @@ if (count($list) !== 0) {
         <div class="card-body">
             <h5 class="card-title">В списке нет ни одной задачи</h5>
             <p class="card-text">Нужно добавить новые задачи</p>
-            <a href="create" class="btn btn-primary">Создать задачу</a>
+            <a href="/create" class="btn btn-primary">Создать задачу</a>
         </div>
     </div>
     <?php
@@ -55,4 +57,14 @@ if (count($list) !== 0) {
 
 ?>
 
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <?php if (isset($pag['back'])) { ?>
+            <a href="<?= $pag['back'] ?>" type="button" class="btn btn-primary">Назад</a>
+        <?php } ?>
+        <?php if (isset($pag['next'])) { ?>
+            <a href="<?= $pag['next'] ?>" type="button" class="btn btn-primary">Далее</a>
+        <?php } ?>
+    </div>
+
 </div>
+

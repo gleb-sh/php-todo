@@ -6,6 +6,7 @@ use App\Controllers\TodoController;
 
 
 $router->get('',[SiteController::class,'index']);
+$router->get('search',[SiteController::class,'index']);
 
 $router->get('login',[SiteController::class,'login']);
 $router->post('login',[UserController::class,'login']);

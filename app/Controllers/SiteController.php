@@ -8,15 +8,19 @@ use App\Services\TodoService;
 
 class SiteController extends Controller
 {
-    public function index()
+    public function index(string $param = null)
     {
         $isUser = UserService::isUser();
 
-        $data = TodoService::params();
+        $step = 3;
+
+        $data = TodoService::params($step);
+
+        $pag = TodoService::pag($data);
 
         $list = TodoService::get($data);
 
-        return view('home', compact('isUser','list','data') );
+        return view('home', compact('isUser','list','data','pag') );
     }
 
     public function login()
